@@ -11,8 +11,8 @@
     <input type="text" name="loanAmount" id="loanAmount"><br>
     Durée d'emprunt:<br>
     <input type="text" name="loanDuration" id="loanDuration"><br>
-    Taux d'intérêt:<br>
-    <input type="text" name="behoof" id="behoof"><br>
+    Taux d'intérêt (en pourcent):<br>
+    <input type="text" name="behoof" id="behoof">%<br>
     <input type="button" onClick="getValue()">
 </form>
 <script>
@@ -23,22 +23,36 @@
     }
 
     loan.prototype.calculateMonthlyPayment = function () {
-        let valueUp = this.loanAmount * (this.behoof/100) / 12;
+        let valueUp = this.loanAmount * (this.behoof / 100) / 12;
         console.log(valueUp);
-        let valueDown = 1 - Math.pow((1 + (this.behoof/100 / 12)), -this.loanDuration);
+        let valueDown = 1 - Math.pow((1 + (this.behoof / 100 / 12)), -this.loanDuration);
         console.log(valueDown);
         return valueUp / valueDown;
     };
 
     function getValue() {
-        let loanAmount = document.getElementById("loanAmount").value;
-        let loanDuration = document.getElementById("loanDuration").value;
-        let behoof = document.getElementById("behoof").value;
+        if (document.getElementById("loanAmount").value > 0) {
+            var loanAmount = document.getElementById("loanAmount").value;
+            console.log(loanAmount);
+        }
+        if (document.getElementById("loanDuration").value > 0) {
+            var loanDuration = document.getElementById("loanDuration").value;
+            console.log(loanDuration);
+        }
+        if (document.getElementById("behoof").value > 0 && document.getElementById("behoof").value <= 100) {
+            var behoof = document.getElementById("behoof").value;
+            console.log(behoof);
+        }
 
-        let yourLoan = new loan(loanAmount, loanDuration, behoof);
-        console.log(yourLoan);
-        alert(yourLoan.calculateMonthlyPayment());
-        alert("fuck les taux d'intérets");
+        if (loanAmount && loanDuration && behoof) {
+            let yourLoan = new loan(loanAmount, loanDuration, behoof);
+            console.log(yourLoan);
+            alert(yourLoan.calculateMonthlyPayment());
+            alert("fuck les taux d'intérets");
+        }
+        else {
+            alert("Ca march po");
+        }
     }
 </script>
 
