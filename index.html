@@ -6,40 +6,7 @@
 </head>
 <body>
 <script>
-    var toto = {
-        "color": "blanc",
-        "age": "10"
-    };
 
-    console.log(toto.color);
-
-    // Object.prototype
-
-    if (typeof Object.create !== 'function') {
-        Object.create = function (machin) {
-            var F = function () {
-            };
-            F.prototype = truc;
-            return new F();
-        }
-    }
-
-    console.log(typeof toto);
-
-    var taSoeur = "slt la moche";
-
-    function taMere() {
-        alert(taSoeur);
-    }
-
-    taMere();
-
-    var tonPere = {};
-    tonPere.toto = {
-        "couleur": "noir",
-        "longueur": 10,
-        "largeur": 5
-    }
 </script>
 </body>
 </html>
