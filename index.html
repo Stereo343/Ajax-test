@@ -17,6 +17,12 @@
         alert("Et la " + this.model + " FAIT VROOOM");
     }
     tuning.start();
+
+    car.prototype.roues = true;
+
+    function carTuning() {
+        car.apply(this);
+    }
 </script>
 </body>
 </html>
