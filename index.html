@@ -6,7 +6,17 @@
 </head>
 <body>
 <script>
+    function car(model) {
+        this.model = model;
+    }
 
+    var tuning = new car(206);
+    console.log(tuning.model);
+
+    car.prototype.start = function() {
+        alert("Et la " + this.model + " FAIT VROOOM");
+    }
+    tuning.start();
 </script>
 </body>
 </html>
