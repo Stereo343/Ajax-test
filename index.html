@@ -19,13 +19,13 @@
     function Loan(loanAmount, loanDuration, behoof) {
         this.loanAmount = loanAmount;
         this.loanDuration = loanDuration;
-        this.behoof = behoof;
+        this.behoof = behoof / 100;
     }
 
     Loan.prototype.calculateMonthlyPayment = function () {
-        let valueUp = this.loanAmount * (this.behoof / 100) / 12;
+        let valueUp = this.loanAmount * (this.behoof) / 12;
         console.log(valueUp);
-        let valueDown = 1 - Math.pow((1 + (this.behoof / 100 / 12)), -this.loanDuration);
+        let valueDown = 1 - Math.pow((1 + (this.behoof / 12)), -this.loanDuration);
         console.log(valueDown);
         return valueUp / valueDown;
     };
