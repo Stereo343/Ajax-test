@@ -16,13 +16,13 @@
     <input type="button" onClick="getValue()">
 </form>
 <script>
-    function loan(loanAmount, loanDuration, behoof) {
+    function Loan(loanAmount, loanDuration, behoof) {
         this.loanAmount = loanAmount;
         this.loanDuration = loanDuration;
         this.behoof = behoof;
     }
 
-    loan.prototype.calculateMonthlyPayment = function () {
+    Loan.prototype.calculateMonthlyPayment = function () {
         let valueUp = this.loanAmount * (this.behoof / 100) / 12;
         console.log(valueUp);
         let valueDown = 1 - Math.pow((1 + (this.behoof / 100 / 12)), -this.loanDuration);
@@ -45,7 +45,7 @@
         }
 
         if (loanAmount && loanDuration && behoof) {
-            let yourLoan = new loan(loanAmount, loanDuration, behoof);
+            let yourLoan = new Loan(loanAmount, loanDuration, behoof);
             console.log(yourLoan);
             alert(yourLoan.calculateMonthlyPayment());
             alert("fuck les taux d'intérets");
