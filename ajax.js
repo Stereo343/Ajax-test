@@ -1,18 +1,18 @@
 function getXMLHttpRequest() {
-    let yolo;
+    let yoloAjax;
     if (window.XMLHttpRequest || window.ActiveXObject) {
         if (window.ActiveXObject) {
             try {
-                yolo = new ActiveXObject("Msxm12.XMLHTTP");
+                yoloAjax = new ActiveXObject("Msxm12.XMLHTTP");
             }
             catch (e) {
-                yolo = new ActiveXObject("Microsoft.XMLHTTP");
+                yoloAjax = new ActiveXObject("Microsoft.XMLHTTP");
             }
         }
         else {
-            yolo = new XMLHttpRequest();
+            yoloAjax = new XMLHttpRequest();
         }
-        return yolo;
+        return yoloAjax;
     }
     else {
         alert("Môrche pô");
