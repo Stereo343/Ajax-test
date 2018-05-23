@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajajajaja</title>
+    <script src="ajax.js"></script>
+</head>
+<body>
+<script>
+    var toto = null;
+    toto = getXMLHttpRequest();
+
+    toto.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(toto.responseText);
+        }
+    };
+    toto.open("GET", "ajax.php?parametre1=0&parametre2=22", true);
+    toto.send(null);
+</script>
+</body>
+</html>
